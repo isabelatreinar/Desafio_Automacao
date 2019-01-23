@@ -1,0 +1,5 @@
+##YAML Templates
+---
+default: -p pretty -p token -p relatorio
+pretty: --format pretty #formato que vai ser apresentado no terminal
+relatorio: --format html --out=features/logs/relatorio.html #para gerar relatorio
