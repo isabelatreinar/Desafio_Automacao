@@ -1,0 +1,6 @@
+##YAML Templates
+---
+default: -p pretty -p token -p relatorio
+pretty: --format pretty #formato que vai ser apresentado no terminal
+token: ENVIRONMENT_TYPE=token #ambiente pré produção
+relatorio: --format html --out=features/logs/relatorio.html #para gerar relatorio

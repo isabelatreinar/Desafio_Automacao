@@ -11,14 +11,11 @@ Before do |scenario|
 end
 
 After do |scenario|
-  # Do something after each scenario.
-  # The +scenario+ argument is optional, but
-  # if you use it, you can inspect status with
-  # the #failed?, #passed? and #exception methods.
-
-  if(scenario.failed?)
-    #Do something if scenario fails.
-  end
+  nome_cenario = scenario.name.tr(' ', '_').downcase! #downcase é para ficar em caixa baixa
+  nome_cenario = nome_cenario.gsub(/([_@#!%()\-=;><,{}\~\[\]\.\/\?\"\*\^\$\+\-]+)/,'') #expressão regular do rby, substitui todos esses caracteres por espaço em branco para não dar erro na hora de gerar o nome do screenshot
+  screenshot = "features/logs/shots/#{nome_cenario}.png"
+  page.save_screenshot(screenshot)
+  embed(screenshot, 'image/png', 'Clique aqui para ver a evidência') #para anexar o screenshot ao relatório
 end
 
 #Tagged hooks
